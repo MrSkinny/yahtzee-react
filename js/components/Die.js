@@ -16,7 +16,7 @@ const dieStyles = {
     },
 };
 
-const generateOuterStyle = function(onHold, isEndTurn, noRolls) {
+const generateOuterStyles = function(onHold, isEndTurn, noRolls) {
     const modifiedStyles = {};
     if (onHold) modifiedStyles.backgroundColor = 'pink';
     if (noRolls) modifiedStyles.backgroundColor = 'lightgray';
@@ -26,8 +26,10 @@ const generateOuterStyle = function(onHold, isEndTurn, noRolls) {
 
 const Die = ({ id, face, onHold, holdDie, isEndTurn, noRolls }) => {
     const { innerDieStyles } = dieStyles;
+    const outerDieStyles = generateOuterStyles(onHold, isEndTurn, noRolls);
+
     return (
-        <div style={generateOuterStyle(onHold, isEndTurn, noRolls)} onClick={() => isEndTurn || noRolls ? null : holdDie(id)}>
+        <div style={outerDieStyles} onClick={() => isEndTurn || noRolls ? null : holdDie(id)}>
             <span style={innerDieStyles}>
                 {face}
             </span>
