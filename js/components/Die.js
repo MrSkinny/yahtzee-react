@@ -29,7 +29,10 @@ const Die = ({ id, face, onHold, holdDie, isEndTurn, noRolls }) => {
     const outerDieStyles = generateOuterStyles(onHold, isEndTurn, noRolls);
 
     return (
-        <div style={outerDieStyles} onClick={() => isEndTurn || noRolls ? null : holdDie(id)}>
+        <div 
+            style={outerDieStyles} 
+            onClick={() => isEndTurn || noRolls ? null : holdDie(id)}
+        >
             <span style={innerDieStyles}>
                 {face}
             </span>

@@ -28,7 +28,7 @@ Dice.createDice = function() {
     for (let i = 1; i < 6; i++) {
         dice.push({
             id: i,
-            face: Dice.randomFace(),
+            face: null,
             onHold: false
         });
     }
